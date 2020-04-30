@@ -53,7 +53,7 @@
 
 
         <table class="lead" style="width: 100%">
-          <!-- <tr>
+          <tr>
             <th>
               Student ID
             </th>
@@ -63,17 +63,10 @@
                 <th>
               Last Name
             </th>
-          </tr> -->
-          <!-- {% for x in student %}
-
-          <tr><td>{{ x.id }}</td><td>{{ x.first_name }}</td><td>{{ x.last_name }}</td></tr>
-          {% endfor %} -->
-
-              <ul class="students">
-              {% for x in student %}
-                  <li>{{ x.id }}, {{ x.first_name }}, {{ x.last_name }}</li>
-              {% endfor %}
-              </ul><br>
+          </tr>
+          {% for x in students %}
+          <tr><td>{{ x[0] }}</td><td>{{ x[1] }}</td><td>{{ x[2] }}</td></tr>
+          {% endfor %}
 
         </table><br>
 
@@ -92,9 +85,9 @@
           Date
         </th>
           </tr>
-          {% for x in quiz %}
+          {% for quiz in quizzes %}
 
-          <tr><td>{{quiz[0]}}</td><td>{{quiz[1]}}</td><td>{{quiz[3]}}</td><td>{{quiz[4]}}</tr>
+          <tr><td>{{quiz[0]}}</td><td>{{quiz[1]}}</td><td>{{quiz[2]}}</td><td>{{quiz[3]}}</tr>
           {% endfor %}
         </table><br>
 
