@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Add Quiz Score</title>
+
+    <link     href='http://fonts.googleapis.com/css?family=Sintony:400,700'     rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+      body
+      {
+        background-color:#FFFF00;
+      }
+
+      h1
+      {
+        font-size:48px;
+        margin-top:0;
+        font-family:Arial, sans-serif;
+        text-shadow:2px 0 15px #292929;
+        letter-spacing:4px;
+        text-decoration:none;
+        color:#FFFFFF;
+      }
+
+      #banner
+      {
+        width:500px;
+        height:200px;
+        text-align:center;
+        background-image:url();
+        background-repeat:no-repeat;
+        border-radius:5px;
+        margin:90px auto auto;
+        padding:80px 0;
+      }
+
+      .lead
+      {
+        background-color:rgba(255,255,255,0.6);
+        border-radius:3px;
+        box-shadow:rgba(0,0,0,0.2) 0 1px 3px;
+        font-family:Sintony, sans-serif;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div id="banner">
+      <h1>Add Quiz Score</h1>
+      <p class="lead"></p>
+
+
+      <form action="/results/add" method="post">
+        <table class="lead" style="width:100%">
+          <tr>
+          <td> Student: <input type="text" name="StudentID"></input></td>
+         </tr>
+         <tr>
+        <td> Quiz ID: <select name="quizname">
+          <option value="Python Basics">Python Basics</option>
+          <option value="Python Flask">Python Flask</option>
+          <option value="Python Recursion">Python Recursion</option>
+          <option value="Python Data Types">Python Data Types</option>
+        </select></td>
+          </tr>
+          <tr>
+         <td> Score: <input type="text" name="Score"></input></td>
+           </tr>
+
+          <tr>
+            <td><input type="submit" value="Add Quiz Score">
+            </td>
+          </tr>
+        </form>
+
+  </body>
+</html>
