@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+
+    <link     href='http://fonts.googleapis.com/css?family=Sintony:400,700'     rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+      body
+      {
+        background-color:#FFFF00;
+      }
+
+      h1
+      {
+        font-size:48px;
+        margin-top:0;
+        font-family:Arial, sans-serif;
+        text-shadow:2px 0 15px #292929;
+        letter-spacing:4px;
+        text-decoration:none;
+        color:#FFFFFF;
+      }
+
+      #banner
+      {
+        width:500px;
+        height:200px;
+        text-align:center;
+        background-image:url();
+        background-repeat:no-repeat;
+        border-radius:5px;
+        margin:90px auto auto;
+        padding:80px 0;
+      }
+
+      .lead
+      {
+        background-color:rgba(255,255,255,0.6);
+        border-radius:3px;
+        box-shadow:rgba(0,0,0,0.2) 0 1px 3px;
+        font-family:Sintony, sans-serif;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div id="banner">
+      <h1>Dashboard</h1>
+      <p class="lead"></p>
+
+
+        <table class="lead" style="width: 100%">
+          <!-- <tr>
+            <th>
+              Student ID
+            </th>
+                <th>
+              First Name
+            </th>
+                <th>
+              Last Name
+            </th>
+          </tr> -->
+          <!-- {% for x in student %}
+
+          <tr><td>{{ x.id }}</td><td>{{ x.first_name }}</td><td>{{ x.last_name }}</td></tr>
+          {% endfor %} -->
+
+              <ul class="students">
+              {% for x in student %}
+                  <li>{{ x.id }}, {{ x.first_name }}, {{ x.last_name }}</li>
+              {% endfor %}
+              </ul><br>
+
+        </table><br>
+
+        <table class="lead" style="width: 100%">
+          <tr>
+            <th>
+            Quiz ID
+            </th>
+                <th>
+              Subject
+            </th>
+                <th>
+              Number of Questions
+            </th>
+            <th>
+          Date
+        </th>
+          </tr>
+          {% for x in quiz %}
+
+          <tr><td>{{quiz[0]}}</td><td>{{quiz[1]}}</td><td>{{quiz[3]}}</td><td>{{quiz[4]}}</tr>
+          {% endfor %}
+        </table><br>
+
+
+
+         <tr>
+           <td><input type="submit" value="Add Student Page" onclick="location.href='/student/add">
+           </td>
+         </tr>
+       </table>
+        </form>
+
+  </body>
+</html>
