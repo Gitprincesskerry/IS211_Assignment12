@@ -12,10 +12,10 @@ student = (
     )
 
 quiz = (
-    (1,'Python Basics',5, 2020-02-05),
-    (2,'Python Flask',10, 2020-03-25),
-    (3,'Python Recursion',5, 2020-04-25),
-    (4,'Python Data Types',10, 2020-01-23)
+    (1,'Python Basics',5, '2020-02-05'),
+    (2,'Python Flask',10, '2020-03-25'),
+    (3,'Python Recursion',5, '2020-04-25'),
+    (4,'Python Data Types',10, '2020-01-23')
     )
 
 studentresults = (
