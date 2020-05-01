@@ -6,7 +6,6 @@ import re, sqlite3
 from flask import Flask, render_template, request, redirect, sessions, g, flash, url_for
 app = Flask(__name__)
 #app.secretkey = 'd\xe9X\x00\xbe~Uq\xebX\xae\x81\x1fs\t\xb4\x99\xa3\x87\xe6.\xd1_'
-app.config.from_object(__name__)
 
 secretkey= '#d\xe9X\x00\xbe~Uq\xebX\xae\x81\x1fs\t\xb4\x99\xa3\x87\xe6.\xd1_'
 username = 'admin'
@@ -44,7 +43,6 @@ def teardown_request(exception):
     if hasattr(g, 'db'):
         g.db.close()
 
-
 @app.route('/dashboard')
 def dashboard():
     student_table = g.db.execute("SELECT id, first_name, last_name FROM student").fetchall()
@@ -52,20 +50,31 @@ def dashboard():
     return render_template('dashboard.html', students=student_table, quizzes=quizzes)
 
 
-@app.route('/student/add')
+@app.route('/student/add', methods = ['GET','POST'])
 def addstudent():
-    return render_template('addstudent.html')
+    if request.method == 'GET':
+        return render_template('addstudent.html')
 
+    elif request.method == 'POST':
+        g.db.execute("INSERT INTO student (first_name, last_name) VALUES(?, ?)",
+                    [request.form['firstname'],request.form['lastname']])
+        g.db.commit()
+        return redirect(url_for('dashboard'))
 
-@app.route('/quiz/add')
+@app.route('/quiz/add', methods = ['GET','POST'])
 def addquiz():
-    return render_template('addquiz.html')
+    if request.method == 'GET':
+        return render_template('addquiz.html')
 
+    elif request.method == 'POST':
+        g.db.execute("INSERT INTO quiz (subject, question_total, date_quiz_taken) VALUES(?, ?, ?)",
+                    [request.form['subject'],request.form['numberofquizquestions'],request.form['dateofquiz']])
+        g.db.commit()
+        return redirect(url_for('dashboard'))
 
 @app.route('/results/add')
 def addresults():
     return render_template('quizresults.html')
-
 
 if __name__ == "__main__":
     app.run()
