@@ -91,7 +91,6 @@ def quizresults(id):
         cursor = g.db.cursor()
         cursor.execute("SELECT count(*) FROM studentresults WHERE student_id =" + id)
         count=cursor.fetchone()
-        #cursor.commit()
 
         id_score = g.db.execute("SELECT student_id, score FROM studentresults WHERE student_id =" + id).fetchall()
 
