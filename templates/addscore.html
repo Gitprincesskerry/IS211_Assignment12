@@ -55,15 +55,24 @@
       <form action="/results/add" method="post">
         <table class="lead" style="width:100%">
           <tr>
-          <td> Student: <input type="text" name="StudentID"></input></td>
+          <td> Student:
+          <select name = 'StudentID'>
+            {% for x in id_score %}
+            <option value="{{x[0]}}">{{x[0]}}</option>
+            {% endfor %}
+          </select></td>
          </tr>
+
          <tr>
-        <td> Quiz ID: <select name="quizname">
-          <option value="Python Basics">Python Basics</option>
-          <option value="Python Flask">Python Flask</option>
-          <option value="Python Recursion">Python Recursion</option>
-          <option value="Python Data Types">Python Data Types</option>
-        </select></td>
+           <td> Quiz ID:
+           <select name = 'quizname'>
+             {% for x in id_quiz %}
+             <option value="{{x[0]}}">{{x[1]}}</option>
+             {% endfor %}
+           </select></td>
+          </tr>
+          <tr>
+
           </tr>
           <tr>
          <td> Score: <input type="text" name="Score"></input></td>
