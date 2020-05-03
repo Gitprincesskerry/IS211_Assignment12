@@ -42,5 +42,5 @@ with con:
     cur.executemany("INSERT INTO quiz VALUES(?, ?, ?, ?)", quiz)
 
     cur.execute("DROP TABLE IF EXISTS studentresults")
-    cur.execute("CREATE TABLE studentresults(student_id INTEGER PRIMARY KEY, quiz_id INTEGER, score INTEGER)")
+    cur.execute("CREATE TABLE studentresults(student_id INTEGER , quiz_id INTEGER, score INTEGER)")
     cur.executemany("INSERT INTO studentresults VALUES(?, ?, ?)", studentresults)
