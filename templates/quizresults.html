@@ -51,13 +51,22 @@
       <h1>Quiz Results</h1>
       <p class="lead"></p>
 
-
-      <p>
-        {% for x in student %}
-        {{ x.first_name }} {{ x.last_name }} {{ x.subject }} {{ x.studentresult.score }}
+      <table class="lead" style="width: 100%">
+        <tr>
+          <th>
+            Student ID
+          </th>
+              <th>
+            Score
+          </th>
+        </tr>
+      {% if count == None %}
+        <p>No Results</p>
+      {% endif %}
+        {% for x in id_score %}
+        <tr><td>{{ x[0] }}</td><td>{{ x[1] }}</td></tr>
         {% endfor %}
-       </p>
-
+        </table>
           <br>
             <a href="/dashboard"> Return To Dashboard </a>
 
